@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Store.API.Models
 {
@@ -15,6 +16,14 @@ namespace Store.API.Models
         public string  CreatedBy { get; set; } 
 
         public string ExtraAttribute { get; set; }
+
+        public virtual List<Material> Materials { get; set; }
+
+        public Color()
+        {
+            this.Materials = new List<Material>();
+
+        }
 
     }
 }
