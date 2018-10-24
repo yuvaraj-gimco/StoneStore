@@ -9,7 +9,8 @@ namespace Store.API.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long SalesExecutiveId { get; set; }
+
+        public long Id { get; set; }
 
         public string UId { get; set; }
 
@@ -24,7 +25,7 @@ namespace Store.API.Models
         
         public string Email { get; set; }
 
-        public string Password { get; set; }
+       
 
         public byte[] PasswordHash { get; set; }
 
