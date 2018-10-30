@@ -21,6 +21,9 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SpinnerComponent } from './shared/spinner.component';
+import { AuthService } from './authentication/_services/auth.service';
+import { HttpModule } from '@angular/http';
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -41,18 +44,24 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   imports: [
     CommonModule,
     BrowserModule,
-    BrowserAnimationsModule,   
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    NgbModule.forRoot(),  
+    NgbModule.forRoot(),
     PerfectScrollbarModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+
   ],
   providers: [
+    AuthService,
+
       {
+
       provide: PERFECT_SCROLLBAR_CONFIG,
-      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    },{
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
+
+    }, {
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   }],
